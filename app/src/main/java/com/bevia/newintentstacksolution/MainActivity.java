@@ -1,5 +1,6 @@
 package com.bevia.newintentstacksolution;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,5 +21,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void openSeleccionDePago() {
+        Intent intent = new Intent(this, SeleccionMesaActivity.class);
+
+        // skip passing through MainActivity when returning from an intent call
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 }
